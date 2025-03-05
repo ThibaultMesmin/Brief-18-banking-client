@@ -68,3 +68,45 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Rapport d'Expérience Utilisateur (UX)
+
+## 1. Problèmes d'Erreurs et de Messages d'Erreur
+- **Mauvaise gestion du message d'erreur**: Lorsque l'utilisateur n'est pas enregistré lors de la tentative de connexion, les messages d'erreur ne sont pas gérés correctement, ce qui peut entraîner de la confusion et de la frustration.
+
+## 2. Problèmes de Persistance des Données
+- **Mauvaise persistance des données de formulaire**: Les données saisies dans les formulaires ne sont pas correctement enregistrées, obligeant les utilisateurs à les saisir à nouveau.
+
+## 3. Problèmes de Parcours Utilisateur
+- **Manque d'explications sur le parcours utilisateur**: L'ordre des actions n'est pas clairement expliqué, comme l'exigence d'entrer les moyens de paiement avant de créer des transactions, ce qui peut désorienter les utilisateurs.
+
+## 4. Problèmes de Version Mobile
+- **Items de la navbar débordent**: Les éléments de la barre de navigation débordent du champ visuel, rendant la navigation difficile.
+- **Imputs trop petits**: Les champs de saisie sont trop petits, rendant la saisie difficile pour les utilisateurs mobiles.
+
+## 5. Problèmes de Session Utilisateur
+- **Sessions non sauvegardées**: Les utilisateurs doivent se reconnecter à chaque fois car leur session n'est pas sauvegardée dans le localStorage.
+
+## 6. Problèmes Identifiés par Lighthouse
+- **Contraste insuffisant**: Mauvais contraste entre la couleur de fond et le texte des boutons sur la page de connexion.
+- **JavaScript inutilisé**: Des scripts inutilisés doivent être supprimés pour améliorer les performances.
+- **Syntaxe JavaScript ancienne**: Mettre à jour la syntaxe JavaScript vers du JSX pour améliorer la compatibilité et les performances.
+- **Blocage du rendu initial**: Certaines ressources bloquent le rendu initial, nécessitant l'utilisation de `async` ou `defer`.
+- **Gestion du cache**: Le cache des ressources statiques n'est pas bien géré, ce qui doit être mis en place.
+
+## 7. Problèmes de Formulaire de Transaction
+- **Transaction non enregistrée**: Les formulaires de transaction ne sont pas enregistrés si l'utilisateur quitte sans avoir soumis.
+- **Confusion des montants**: L'inversion entre les virgules et les points pour les montants de transaction porte à confusion.
+
+## 8. Problèmes de Navigation
+- **Ordre de la Navbar**: L'ordre des éléments de la barre de navigation doit être inversé pour mieux orienter l'utilisateur.
+- **Rechargement de la page**: Le rechargement de la page déconnecte l'utilisateur, obligeant une nouvelle connexion.
+- **Actualisation nécessaire pour voir les modifications**: Lors de la suppression d'une catégorie, une actualisation est nécessaire pour voir 
+
+
+## Modifications Apportées
+- Déconnexion après le rechargement de la page: Problème résolu pour éviter que les utilisateurs soient déconnectés après un rechargement de la page.
+- Erreur lors de la connexion: Correction des messages d'erreur pour qu'ils soient clairs et informatifs.
+- Ordre des pages dans la Navbar: Réorganisation de l'ordre des éléments de la barre de navigation pour une meilleure orientation de l'utilisateur.
+- Contraste des couleurs de la Navbar: Amélioration du contraste des couleurs dans la barre de navigation pour une meilleure lisibilité.
