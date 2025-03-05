@@ -14,9 +14,9 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-brand">Finance Tracker</div>
       <div className="nav-links">
-        <Link to="/" className={isActive('/')}>Transactions</Link>
         <Link to="/categories" className={isActive('/categories')}>Categories</Link>
         <Link to="/payment-methods" className={isActive('/payment-methods')}>Payment Methods</Link>
+        <Link to="/" className={isActive('/')}>Transactions</Link>
       </div>
       <div onClick={logout}>Logout</div>
     </nav>

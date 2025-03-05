@@ -7,45 +7,58 @@ export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const { login, register } = useAuth();
   const [authLoading, setAuthLoading] = useState(false);
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setAuthLoading(true);
-    setError('');
-    
-    const success = isLogin 
-      ? await login(username, password)
-      : await register(username, password);
-    
-    if (!success) {
-      setError(isLogin ? 'Login failed' : 'Registration failed');
-    }
-    setAuthLoading(false);
+    setUsernameError('');
+    setPasswordError('');
 
-  }, [isLogin, username, password, login, register, setAuthLoading]);
+    try {
+      const success = isLogin 
+        ? await login(username, password)
+        : await register(username, password);
+      
+      if (!success) {
+        setUsernameError(isLogin ? 'Invalid username or password' : 'Registration failed');
+        setPasswordError(isLogin ? 'Invalid username or password' : '');
+      }
+    } catch (error) {
+      setUsernameError(isLogin ? 'Invalid username or password' : 'Registration failed');
+      setPasswordError(isLogin ? 'Invalid username or password' : 'Registration failed');
+    } finally {
+      setAuthLoading(false);
+    }
+  }, [isLogin, username, password, login, register]);
 
   return (
     <div className="login-container">
       <h2>{isLogin ? 'Login' : 'Register'}</h2>
-      {error && <div className="error">{error}</div>}
       {authLoading && <Loader />}
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          aria-label='Username field'
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="input-group">
+          <input
+            type="text"
+            aria-label='Username field'
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          {usernameError && <div className="error">{usernameError}</div>}
+        </div>
+        <div className="input-group">
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {passwordError && <div className="error">{passwordError}</div>}
+        </div>
         <button type="submit">
           {isLogin ? 'Login' : 'Register'}
         </button>
@@ -56,4 +69,3 @@ export default function Login() {
     </div>
   );
 }
-

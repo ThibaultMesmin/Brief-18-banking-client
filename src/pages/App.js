@@ -20,9 +20,9 @@ function AppContent() {
         <Navbar />
         <div>
           <Routes>
-            <Route path="/" element={<TransactionList />} />
             <Route path="/categories" element={<CategoryList />} />
             <Route path="/payment-methods" element={<PaymentMethodList />} />
+            <Route path="/" element={<TransactionList />} />
           </Routes>
         </div>
       </div>
