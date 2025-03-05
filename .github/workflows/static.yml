@@ -37,7 +37,7 @@ jobs:
 
       - name: Build
         env:
-          PUBLIC_URL: /simplon-2024-banking-client/
+          PUBLIC_URL: /Brief-18-banking-client/
         run: |
           npm install
           npm run build
