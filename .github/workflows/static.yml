@@ -43,7 +43,7 @@ jobs:
           npm run build
 
       - name: Installer Lighthouse CI
-        run: npm install -g @lhci/cli@0.14.x
+        run: npm install -g @lhci/cli
   
       - name: Setup Pages
         uses: actions/configure-pages@v5
