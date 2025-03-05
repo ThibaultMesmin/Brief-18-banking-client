@@ -1,0 +1,40 @@
+name: LIGHTHOUSE ACCES CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+ 
+      - name: Installer Lighthouse CI
+        run: npm install -g @lhci/cli@0.14.x
+ 
+      - name: Build
+        env:
+          PUBLIC_URL: /Brief-18-banking-client/
+        run: |
+          npm install
+          npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './build'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+ 
+      - name: Run Lighthouse CI
+        run: lhci autorun
