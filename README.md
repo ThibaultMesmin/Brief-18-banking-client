@@ -102,7 +102,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## 8. Problèmes de Navigation
 - **Ordre de la Navbar**: L'ordre des éléments de la barre de navigation doit être inversé pour mieux orienter l'utilisateur.
 - **Rechargement de la page**: Le rechargement de la page déconnecte l'utilisateur, obligeant une nouvelle connexion.
-- **Actualisation nécessaire pour voir les modifications**: Lors de la suppression d'une catégorie, une actualisation est nécessaire pour voir 
+- **Actualisation nécessaire pour voir les modifications**: Lors de la suppression d'une catégorie, une actualisation est nécessaire pour voir
+- **Ecarter les boutons login et register** pour plus de lisibilité
 
 
 ## Modifications Apportées
